@@ -26,7 +26,7 @@ chunksize = 32768
 
 
 block = bytearray(0)
-time1 = int(int(datetime.datetime.now().strftime('%s')) / 15) * 15
+time1 = int(int(datetime.datetime.now().strftime('%s')) / blocktime) * blocktime
 starttime = datetime.datetime.fromtimestamp(time1)
 endtime = datetime.datetime.fromtimestamp(time1+15)
 print(starttime, endtime)
@@ -39,7 +39,7 @@ while True:
 
     if datetime.datetime.now() > endtime:
         print("Buffersize", len(block))
-        fname = "/ramdisk/file-"+nametag+"-"+starttime.strftime("%H%M%S")+".iq"
+        fname = "/ramdrive/file-"+nametag+"-"+starttime.strftime("%H%M%S")+".iq"
 
         if not first:
             print("Writing: ",fname)
